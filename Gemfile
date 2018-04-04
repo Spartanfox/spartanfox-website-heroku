@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'simple_form'
 gem 'bootstrap-sass', '3.3.7'
+gem 'rails_12factor', group: :production
+gem 'jquery-rails'
 # Use postgres as the database for Active Record
 gem 'pg'
 
