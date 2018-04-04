@@ -1,0 +1,43 @@
+<header class="navbar-fixed-top" style="padding-top:120px">
+  <div class="container">
+    <nav>
+      <% if notice %>
+          <p class="alert alert-success"><%= notice  %></p>
+      <% end %>
+      <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </nav>
+  <div>
+</header >
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Spartanfox Productions", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+                Logged in as <strong><%= current_user.username %></strong>
+              <%end%>
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to 'Home', home_url%></li>
+        <li><%= link_to 'Forum', categories_path%></li>
+        <li><%= link_to 'Downloads', downloads_path%></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <%if user_signed_in?%>
+          <li><%= link_to 'Edit profile', edit_user_registration_path%></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+        <%else%>
+          <li><%= link_to "Sign up", new_user_registration_path%></li>
+          <li><%= link_to "Login"  , new_user_session_path     %></li>
+        <%end%>
+      </ul>
+    </nav>
+  </div>
+
+</header>

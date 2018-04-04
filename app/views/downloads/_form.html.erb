@@ -1,0 +1,7 @@
+<%= simple_form_for @download do |form| %>
+    <%= form.input :title %>
+    <%= form.input :description, as: :text %>
+    <%= form.input :download_url %>
+    <%= form.input :downloads_number%>
+    <%= form.button :submit %>
+<% end %>

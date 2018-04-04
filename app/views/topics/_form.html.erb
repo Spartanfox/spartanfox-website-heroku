@@ -1,0 +1,7 @@
+<%#= simple_form_for @topic, url: category_topic_path do |form| %>
+<%= simple_form_for @topic do |form| %>
+    <%= hidden_field_tag :id, @category.id %>
+    <%= form.input :title %>
+    <%= form.input :description %>
+    <%= form.button :submit %>
+<% end %>

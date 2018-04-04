@@ -1,0 +1,28 @@
+  <div class="list-group">
+    <div class="list-group-item list-group-item-action flex-column align-items-start active">
+      <div class="d-flex w-100 justify-content-start">
+        <h2 class="mb-1">Downloads
+          <% if @auth >= @owner%>
+            <%= link_to 'New', new_download_path, class:"btn btn-default"%>
+          <%end%>
+        </h2>
+      </div>
+    </div>
+    <% @downloads.each do |download| %>
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex justify-content-around ">
+          <h3 class="mb-1">
+            <%= link_to 'Download', download_path(download), class:"btn btn-default"%>
+            <%= download.title%>
+            <% if @auth >= @admin%>
+              <%= link_to 'Edit', edit_download_path(download), class:"btn btn-default"%>
+              <%= link_to 'Destroy', download_path(download), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-default"%>
+            <%end%>
+          </h3>
+        </div>
+        <p class="mb-1"><%= download.description%></p>
+        <small class="text-muted"><%= download.downloads_number%> Downloads</small>
+        <small class="text-muted"><%= download.created_at.strftime("%D - %I:%M %p")%></small>
+      </div>
+    <%end%>
+  </div>

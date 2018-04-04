@@ -1,0 +1,4 @@
+<%= simple_form_for( :message, url: topic_messages_path(@topic)) do |f| %>
+    <%= f.input :message, as: :text %>
+    <%= f.button :submit %>
+<% end %>

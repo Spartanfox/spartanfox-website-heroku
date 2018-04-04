@@ -1,0 +1,37 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#forum {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+#forum td, #forum th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#forum tr:nth-child(even){background-color: #f2f2f5;}
+#forum tr:nth-child(odd){background-color: #e2e2e5;}
+
+#forum tr:hover {background-color: #ddd;}
+
+#forum th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    //background-color: #4CAF50;
+    background-color: #4C4CAF;
+    color: white;
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-color: #DDD;
+    border-width: 1px;
+}

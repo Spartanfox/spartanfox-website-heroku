@@ -1,0 +1,40 @@
+
+<center>
+  <table id="forum">
+    <tr>
+      <th>Forum</th>
+    </tr>
+
+    <% if @auth >= @owner%>
+      <tr>
+        <td><%= link_to 'New Category', new_category_path %></td>
+      </tr>
+    <%end%>
+    <% @categories.each do |category| %>
+      <tr>
+        <td>
+          <p><%= link_to category.name, category_path(category) %></p>
+          <hr>
+          <p><%= category.description %></p>
+          <hr>
+          <p>
+              <%= category.topics.length%> Topics
+                <%messages = 0%>
+                <%category.topics.each do |topic|%>
+                <% messages = messages+topic.messages.length%>
+              <%end%>
+              <%= messages%> Messages
+              <% if @auth >= @admin%>
+                <%= link_to 'Edit', edit_category_path(category) %>
+              <% end %>
+              <% if @auth >= @owner%>
+                <%= link_to 'Destroy', category_path(category), method: :delete, data: {confirm: 'Are you sure?'}%>
+              <% end %>
+
+          </p>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+</center>

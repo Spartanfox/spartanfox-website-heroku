@@ -1,0 +1,40 @@
+<center>
+  <table id="forum">
+
+<tr>
+  <th>  <%= @topic.title %></th>
+</tr>
+<tr>
+  <td>
+    <%= link_to 'Back', category_path %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <div style="min-height: 60px">
+        <%= @topic.description %>
+    </div>
+  </td>
+</tr>
+<tr>
+  <th>Comments</th>
+</tr>
+  <% @topic.messages.each do |message| %>
+    <tr>
+      <td>
+      <p><%=message.created_at.strftime("%D - %I:%M %p")%> by <strong><%= message.creator%></strong></p>
+      <p><%= message.message %></p>
+        <% if @auth >= @mod%>
+          <P>
+            <%= link_to 'Destroy', topic_message_path(message,@topic), method: :delete, data: {confirm: 'Are you sure?'}%>
+          </p>
+        <%end%>
+    </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td><%= render 'messages/form'%></td>
+  </tr>
+
+</table>
+</center>

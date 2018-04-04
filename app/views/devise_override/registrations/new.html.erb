@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h2>Sign up</h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.input :username, label: 'Username: ', required: true%>
+      <%= f.input :email   , label: 'Email:', placeholder: 'user@domain.com'%>
+      <%= f.input :password, autocomplete: "off", input_html: {minLength: @minimum_password_length} %>
+      <%= f.input :password_confirmation, autocomplete: "off", input_html: {minLength: @minimum_password_length} %>
+      <%= f.button :submit%>
+  <% end %>
+  <p>or</p>
+  <%= render "devise/shared/links" %>
+</div>

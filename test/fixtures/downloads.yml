@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  desctiption: MyString
+  creator: MyString
+  download: MyString
+  downloads: 1
+
+two:
+  title: MyString
+  desctiption: MyString
+  creator: MyString
+  download: MyString
+  downloads: 1

@@ -1,0 +1,36 @@
+
+<center>
+  <table id="forum">
+    <tr>
+      <th>Topics</th>
+    </tr>
+
+      <tr>
+        <td>
+          <%= link_to 'Back', categories_path %>
+          <% if user_signed_in? %>
+              | <%= link_to 'New Topic', new_category_topic_path(@category) %>
+          <% end %>
+        </td>
+      </tr>
+
+    <% @category.topics.each do |topic| %>
+      <tr>
+        <td>
+          <p><%= link_to topic.title, category_topic_path(topic) %><small> By <%=topic.creator%></small></p>
+          <hr>
+          <p><%= topic.description %></p>
+          <hr>
+          <p>
+              <%= topic.messages.length%> Messages
+              <small><%= topic.created_at.strftime("%D - %I:%M %p")%></small>
+              <% if @auth >= @mod%>
+                <%= link_to 'Edit', edit_category_topic_path(topic) %> |
+                <%= link_to 'Destroy', category_topic_path(topic), method: :delete, data: {confirm: 'Are you sure?'}%>
+              <%end%>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</center>
